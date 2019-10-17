@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <button @click="setShowModal(true)">Create Account</button>
+    <Modal v-if="showModal">
+      <SignUp />
+    </Modal>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+/*eslint no-console: ["error", { allow: ["warn"] }] */
+import Modal from "./components/Modal.vue";
+import SignUp from "./views/SignUp.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Modal,
+    SignUp
+  },
+  data() {
+    return {
+      showModal: false,
+    }
+  },
+  methods: {
+    setShowModal: function(bool) {
+      this.showModal = bool;
+    }
   }
 };
 </script>
 
 <style lang="scss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Haas Grot Text R", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
