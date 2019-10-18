@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div class="modal center">
+    <div class="modal">
       <div class="container">
         <header v-if="$scopedSlots['header']">
           <slot name="header"></slot>
@@ -28,15 +28,16 @@ export default {
 <style lang="scss" scoped>
 .modal {
   width: 100%;
-  height: 100%;
   z-index: 10;
   display: flex;
   align-items: stretch;
-  overflow-x: scroll;
+  top: 0;
+  bottom:0;
+  position:fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .container {
-  height: 100%;
   width: 100%;
-  display: flex;
 }
 </style>

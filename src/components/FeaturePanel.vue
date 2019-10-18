@@ -71,7 +71,7 @@ h2 {
   background-size: auto 85%;
   background-repeat: no-repeat;
   background-position: bottom center;
-  // min-height: 330px;
+  min-height: 330px;
 }
 .dribbble-logo {
   display: block;

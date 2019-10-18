@@ -32,6 +32,7 @@ export default {
   display: flex;
   align-items: stretch;
   flex-grow: 1;
+  min-height: 100%;
   background: $white;
 }
 .side-panel {
