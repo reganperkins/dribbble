@@ -1,6 +1,6 @@
 <template>
   <div id="sign-up-page">
-    <FeaturePanel classProp="side-panel" /> 
+    <FeaturePanel classProp="side-panel" textColor="#866211" /> 
     <SignUp classProp="sign-up-panel" />
   </div>
 </template>
