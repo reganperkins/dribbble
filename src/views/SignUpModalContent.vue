@@ -22,6 +22,12 @@ export default {
 <style lang="scss" scoped>
 @import 'src/styles/_variables.scss';
 
+@media (max-width: 1028px) {
+  .side-panel {
+    display: none;
+  }
+}
+
 #sign-up-page {
   display: flex;
   align-items: stretch;

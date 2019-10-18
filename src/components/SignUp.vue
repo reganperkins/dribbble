@@ -70,6 +70,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 48px;
+  overflow: auto;
   .sign-in {
     text-align: right;
     font-size: 14px;
