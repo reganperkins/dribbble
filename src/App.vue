@@ -1,8 +1,12 @@
 <template>
   <div>
-    <button @click="setShowModal(true)">Create Account</button>
+    <button
+      @click="setShowModal(true)"
+      class="center standard--button">
+      Create Account
+    </button>
     <Modal v-if="showModal">
-      <SignUp />
+      <SignUpModalContent />
     </Modal>
   </div>
 </template>
@@ -10,13 +14,13 @@
 <script>
 /*eslint no-console: ["error", { allow: ["warn"] }] */
 import Modal from "./components/Modal.vue";
-import SignUp from "./views/SignUp.vue";
+import SignUpModalContent from "./views/SignUpModalContent.vue";
 
 export default {
   name: "app",
   components: {
     Modal,
-    SignUp
+    SignUpModalContent,
   },
   data() {
     return {
@@ -32,9 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: "Haas Grot Text R", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import 'src/styles/_reset.scss';
+@import 'src/styles/_shared.scss';
+
 </style>

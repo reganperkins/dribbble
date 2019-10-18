@@ -1,0 +1,52 @@
+@import 'src/styles/_variables.scss';
+
+@mixin button($height) {
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: 800;
+  text-align: center;
+  line-height: $height;
+  border: none;
+}
+
+@mixin standard--button($color: $pink, $width: 200px, $height: 40px) {
+  @include button($height);
+  height: $height;
+  width: $width;
+  background: $color;
+  color: $white;
+  // border-radius: 4px;
+  font-size: 13px;
+  // font-weight: 800;
+}
+
+@mixin icon--button($path, $color: $light-grey) {
+  @include button(48px);
+  height: 48px;
+  width: 48px;
+  background: $color;
+  // border-radius: 4px;
+  font-size: 0;
+  &:before {
+    content: url($path);
+    display: block;
+  }
+}
+@mixin text-separator--hr($text, $width: 52px) {
+  margin: 40px 0 20px;
+  height: 1px;
+  border: none;
+  border-top: 1px solid #E0E0E0;
+  text-align: center;
+  overflow: visible;
+  
+  &:after {
+    content: $text;
+    width: $width;
+    color: $grey;
+    background: $white;
+    position: relative;
+    display: inline-block;
+    top: -0.50em;
+  }
+}

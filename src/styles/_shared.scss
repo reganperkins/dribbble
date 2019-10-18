@@ -1,0 +1,118 @@
+@import 'src/styles/_mixins.scss';
+@import 'src/styles/_variables.scss';
+
+html, body {
+  font-family: "Haas Grot Text R", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  font-weight: 800;
+}
+h1 {
+  margin-bottom: 24px;
+}
+
+input[type="text"],input[type="password"], input[type="email"] {
+  width: 100%;
+  box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border: none;
+  background: $light-grey;
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  + label {
+    position: relative;
+    &:before, &:after {
+      display: inline-block;
+      position: absolute;
+    }
+    &:before {
+      content: "";
+      height: 16px;
+      width: 16px;
+      border: 1px solid #D0D0D0;
+      border-radius: 2px;
+      top: 3px;
+      left: -23px;
+    }
+    &:after {
+      left: -20px;
+      top: 7px;
+      height: 6px;
+      width: 9px;
+      border-left: 2px solid $grey;
+      border-bottom: 2px solid $grey;
+      transform: rotate(-45deg);
+    }
+  }
+  &:checked + label {
+    &:after {
+      content: "";
+    }
+  }
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  & > *:not(:nth-of-type(1)) {
+    margin-left: 10px;
+  }
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.standard--button {
+  @include standard--button();
+}
+
+.facebook-icon--button {
+  @include icon--button('./assets/facebook.svg', $light-grey);
+}
+
+.twitter-icon--button {
+  @include icon--button( './assets/twitter.svg', $light-grey);
+}
+
+.google--button {
+  @include standard--button($blue, 288px, 48px);
+  position: relative;
+  &:before {
+    display: block;
+    content: url('./assets/google.svg');
+    position: absolute;
+    left: 16px;
+  }
+}
+.or--separator {
+  @include text-separator--hr('Or');
+}
+
+.button--row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  color: $link;
+}
+
