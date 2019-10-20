@@ -1,10 +1,14 @@
 @import 'src/styles/_mixins.scss';
 @import 'src/styles/_variables.scss';
+@import 'src/styles/_fonts.scss';
 
 html, body {
-  font-family: "Haas Grot Text R", Arial, sans-serif;
+  font-family: "Neue Haas Grot", "Helvetica Neue", Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body {
+  color: $black;
 }
 ::selection {
   background: $pink;
@@ -85,24 +89,47 @@ fieldset {
   @include standard--button();
 }
 
-.facebook-icon--button {
-  @include icon--button('./assets/facebook.svg', $light-grey);
+.icon--button {
+  @include button(48px);
+  height: 48px;
+  width: 48px;
+  background: $light-grey;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
 }
 
-.twitter-icon--button {
-  @include icon--button( './assets/twitter.svg', $light-grey);
-}
+// .facebook-icon--button {
+//   @include icon--button('./assets/facebook.svg', $light-grey);
+// }
+
+// .twitter-icon--button {
+//   @include icon--button( './assets/twitter.svg', $light-grey);
+// }
+// .google--button {
+//   @include standard--button($blue, 288px, 48px);
+//   position: relative;
+//   &:before {
+//     display: block;
+//     content: url('./assets/google.svg');
+//     position: absolute;
+//     left: 16px;
+//   }
+// }
 
 .google--button {
   @include standard--button($blue, 288px, 48px);
   position: relative;
-  &:before {
+  img {
     display: block;
     content: url('./assets/google.svg');
     position: absolute;
     left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
+
 .or--separator {
   @include text-separator--hr('Or');
 }

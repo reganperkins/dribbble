@@ -9,7 +9,7 @@
       <h2>{{ title }}</h2>
     </div>
     <div class="feature-container">
-      <div class="feature-image" :style="{backgroundImage: `url(${featureImage})`}">{{featureImageAltText}}</div>
+      <div class="feature-image" :style="{ color: '#000000', backgroundImage: `url(${require(`../assets/${featureImage}`)})` }"></div>
       <p>Art by <a :href="featureImageLink" target="_blank">{{ featureImageCredit }}</a></p>
     </div>
   </section>
@@ -27,7 +27,7 @@ export default {
     },
     featureImage: {
       type: String,
-      default: "https://cdn.dribbble.com/users/76454/screenshots/6592185/001_2x.png",
+      default: "dribbble-web-illustrations-peter-tarka.png",
     },
     featureImageCredit: {
       type: String,

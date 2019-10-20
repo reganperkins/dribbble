@@ -4,11 +4,7 @@
       <main>
         <div class="sign-up-wrapper">
           <h1>Sign up to Dribbble</h1>
-          <div class="button--row">
-            <a class="google--button">Sign up with Google</a>
-            <a class="twitter-icon--button">Twitter</a>
-            <a class="facebook-icon--button">Facebook</a>
-          </div>
+          <SocialAuthButtons />
 
           <hr class="or--separator" />
 
@@ -55,10 +51,14 @@
 </template>
 
 <script>
+import SocialAuthButtons from './SocialAuthButtons'
 export default {
   name: "SignUp",
   props: {
-    classProp: String
+    classProp: String,
+  },
+  components: {
+    SocialAuthButtons
   }
 };
 </script>
