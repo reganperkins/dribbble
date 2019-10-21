@@ -73,9 +73,4 @@ h2 {
   background-position: bottom center;
   min-height: 330px;
 }
-.dribbble-logo {
-  display: block;
-  width: 90px;
-  padding-bottom: 31px;
-}
 </style>

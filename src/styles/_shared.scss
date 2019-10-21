@@ -99,26 +99,10 @@ fieldset {
   justify-content: center;
 }
 
-// .facebook-icon--button {
-//   @include icon--button('./assets/facebook.svg', $light-grey);
-// }
-
-// .twitter-icon--button {
-//   @include icon--button( './assets/twitter.svg', $light-grey);
-// }
-// .google--button {
-//   @include standard--button($blue, 288px, 48px);
-//   position: relative;
-//   &:before {
-//     display: block;
-//     content: url('./assets/google.svg');
-//     position: absolute;
-//     left: 16px;
-//   }
-// }
-
 .google--button {
-  @include standard--button($blue, 288px, 48px);
+  @include standard--button($blue, 200px, 48px);
+  flex: 1 1 288px;
+  min-width: 200px;
   position: relative;
   img {
     display: block;
@@ -135,8 +119,11 @@ fieldset {
 }
 
 .button--row {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  & > *:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 
 .link {
@@ -144,3 +131,9 @@ fieldset {
   color: $link;
 }
 
+
+.dribbble-logo {
+  display: block;
+  width: 90px;
+  padding-bottom: 31px;
+}

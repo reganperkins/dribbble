@@ -17,28 +17,7 @@
   color: $white;
   font-size: 13px;
 }
-// @mixin icon--button($color: $light-grey) {
-//   @include button(48px);
-//   height: 48px;
-//   width: 48px;
-//   background: $color;
-//   font-size: 0;
-//   display: flex;
-//   justify-content: center;
-// }
 
-// @mixin icon--button($path, $color: $light-grey) {
-//   @include button(48px);
-//   height: 48px;
-//   width: 48px;
-//   background: $color;
-//   // border-radius: 4px;
-//   font-size: 0;
-//   &:before {
-//     content: url($path);
-//     display: block;
-//   }
-// }
 @mixin text-separator--hr($text, $width: 52px) {
   margin: 40px 0 20px;
   height: 1px;
