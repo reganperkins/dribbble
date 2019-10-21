@@ -91,6 +91,7 @@ fieldset {
 
 .icon--button {
   @include button(48px);
+  flex: 0 0 auto;
   height: 48px;
   width: 48px;
   background: $light-grey;
