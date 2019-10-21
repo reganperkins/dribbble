@@ -7,7 +7,7 @@
         </header>
 
         <slot></slot>
-        
+
         <footer v-if="$scopedSlots['footer']">
           <slot name="footer"></slot>
         </footer>
@@ -17,13 +17,11 @@
   <!-- https://vuejs.org/v2/guide/transitions.html -->
 </template>
 
-
 <script>
 export default {
-  name: "Modal",
+  name: "Modal"
 };
 </script>
-
 
 <style lang="scss" scoped>
 .modal {
@@ -32,8 +30,8 @@ export default {
   display: flex;
   align-items: stretch;
   top: 0;
-  bottom:0;
-  position:fixed;
+  bottom: 0;
+  position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
 }

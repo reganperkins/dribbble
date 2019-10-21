@@ -1,12 +1,11 @@
 <template>
   <div id="sign-up-page">
-    <FeaturePanel classProp="side-panel" textColor="#866211" /> 
+    <FeaturePanel classProp="side-panel" textColor="#866211" />
     <SignUp classProp="sign-up-panel" />
   </div>
 </template>
 
 <script>
-
 import FeaturePanel from "../components/FeaturePanel.vue";
 import SignUp from "../components/SignUp.vue";
 
@@ -14,13 +13,13 @@ export default {
   name: "SignUpModalContent",
   components: {
     FeaturePanel,
-    SignUp,
-  },
+    SignUp
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import 'src/styles/_variables.scss';
+@import "src/styles/_variables.scss";
 
 @media (max-width: 1028px) {
   .side-panel {

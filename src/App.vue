@@ -1,8 +1,6 @@
 <template>
   <div>
-    <button
-      @click="setShowModal(true)"
-      class="center standard--button">
+    <button @click="setShowModal(true)" class="center standard--button">
       Create Account
     </button>
     <Modal v-if="showModal">
@@ -12,7 +10,6 @@
 </template>
 
 <script>
-/*eslint no-console: ["error", { allow: ["warn"] }] */
 import Modal from "./components/Modal.vue";
 import SignUpModalContent from "./views/SignUpModalContent.vue";
 
@@ -20,12 +17,12 @@ export default {
   name: "app",
   components: {
     Modal,
-    SignUpModalContent,
+    SignUpModalContent
   },
   data() {
     return {
-      showModal: false,
-    }
+      showModal: false
+    };
   },
   methods: {
     setShowModal: function(bool) {
@@ -36,7 +33,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'src/styles/_reset.scss';
-@import 'src/styles/_shared.scss';
-
+@import "src/styles/_reset.scss";
+@import "src/styles/_shared.scss";
 </style>
