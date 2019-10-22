@@ -24,7 +24,6 @@
 </template>
 
 <script>
-/*eslint no-console: ["error", { allow: ["warn"] }] */
 import SocialAuthButtons from "./SocialAuthButtons";
 export default {
   name: "SignUp",

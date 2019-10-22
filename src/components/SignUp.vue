@@ -81,7 +81,6 @@
 </template>
 
 <script>
-/*eslint no-console: ["error", { allow: ["warn"] }] */
 export default {
   name: "SignUp",
   props: {
@@ -162,6 +161,8 @@ export default {
             throw new Error(`HTTP error: ${response.status}`);
           }
         } catch (err) {
+
+          /*eslint no-console: ["error", { allow: ["warn"] }] */
           console.warn(err);
           this.formError = "Ooops! There was a error processing your details.";
         }
