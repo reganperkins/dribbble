@@ -7,6 +7,10 @@
   text-align: center;
   line-height: $height;
   border: none;
+  ::selection {
+    background: initial;
+    color: initial;
+  }
 }
 
 @mixin standard--button($color: $pink, $width: 200px, $height: 40px) {
@@ -16,6 +20,12 @@
   background: $color;
   color: $white;
   font-size: 13px;
+  &:hover {
+    background-color: darken($color, 5%)
+  }
+  &:active {
+    background-color: darken($color, 10%)
+  }
 }
 
 @mixin text-separator--hr($text, $width: 52px) {

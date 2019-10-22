@@ -1,18 +1,18 @@
 <template>
   <transition name="modal" appear>
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <header v-if="$scopedSlots['header']">
-            <slot name="header"></slot>
-          </header>
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <header v-if="$scopedSlots['header']">
+          <slot name="header"></slot>
+        </header>
 
-          <slot></slot>
+        <slot></slot>
 
-          <footer v-if="$scopedSlots['footer']">
-            <slot name="footer"></slot>
-          </footer>
-        </div>
+        <footer v-if="$scopedSlots['footer']">
+          <slot name="footer"></slot>
+        </footer>
       </div>
+    </div>
   </transition>
 </template>
 
@@ -33,11 +33,11 @@ export default {
   position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
-  transition: opacity .4s ease;
+  transition: opacity 0.4s ease;
 }
 .modal-container {
   width: 100%;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .modal-enter {

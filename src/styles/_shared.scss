@@ -140,6 +140,12 @@ fieldset {
   font-size: 0;
   display: flex;
   justify-content: center;
+  &:hover {
+    background-color: darken($light-grey, 5%)
+  }
+  &:active {
+    background-color: darken($light-grey, 10%)
+  }
 }
 
 .google--button {
@@ -173,7 +179,6 @@ fieldset {
   text-decoration: none;
   color: $link;
 }
-
 
 .dribbble-logo {
   display: block;

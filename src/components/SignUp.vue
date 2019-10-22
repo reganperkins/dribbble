@@ -19,25 +19,17 @@
       <hr class="or--separator" />
 
       <form v-on:submit.prevent="signUp">
-        <p v-if="errors.length">
-          <b>Please correct the following error(s):</b>
-          <ul>
-            <li v-bind:key="error" v-for="error in errors">{{ error }}</li>
-          </ul>
+        <p v-if="this.formError" class="form-error">
+          {{ this.formError }}
         </p>
         <div class="form-group">
-          <fieldset :class="{'invalid': attemptSubmit && missingName}">
+          <fieldset :class="{ invalid: attemptSubmit && missingName }">
             <label for="fullname">Full Name</label>
-            <input
-              name="fullname"
-              v-model="name"
-              id="fullname"
-              type="text"
-            />
+            <input name="fullname" v-model="name" id="fullname" type="text" />
             <div class="error-message">Name is required</div>
           </fieldset>
 
-          <fieldset :class="{'invalid': attemptSubmit && missingUsername}">
+          <fieldset :class="{ invalid: attemptSubmit && missingUsername }">
             <label for="username">Username</label>
             <input
               name="username"
@@ -50,7 +42,7 @@
         </div>
 
         <div class="form-group">
-          <fieldset :class="{'invalid': attemptSubmit && missingEmail}">
+          <fieldset :class="{ invalid: attemptSubmit && missingEmail }">
             <label for="email">Email Address</label>
             <input name="email" v-model="email" id="email" type="email" />
             <div class="error-message">Email is required</div>
@@ -58,7 +50,11 @@
         </div>
 
         <div class="form-group">
-          <fieldset :class="{'invalid': attemptSubmit && (missingPassword || invalidPassword)}">
+          <fieldset
+            :class="{
+              invalid: attemptSubmit && (missingPassword || invalidPassword)
+            }"
+          >
             <label for="password">Password</label>
             <input
               name="password"
@@ -72,7 +68,7 @@
         </div>
 
         <div class="form-group">
-          <fieldset :class="{'invalid': attemptSubmit && missingTerms}">
+          <fieldset :class="{ invalid: attemptSubmit && missingTerms }">
             <div class="checkbox-wrapper">
               <input
                 name="terms-agreement"
@@ -117,7 +113,6 @@
 </template>
 
 <script>
-
 /*eslint no-console: ["error", { allow: ["warn"] }] */
 import SocialAuthButtons from "./SocialAuthButtons";
 export default {
@@ -129,7 +124,7 @@ export default {
   components: {
     SocialAuthButtons
   },
-  data: function()  {
+  data: function() {
     return {
       errors: [],
       name: null,
@@ -138,67 +133,76 @@ export default {
       password: null,
       acceptedTerms: null,
       attemptSubmit: false,
+      formError: false,
     };
   },
   computed: {
-    missingName: function () {
+    missingName: function() {
       return !this.name;
     },
-    missingUsername: function () {
+    missingUsername: function() {
       return !this.username;
     },
-    missingEmail: function () {
+    missingEmail: function() {
       return !this.email;
     },
-    invalidPassword: function () {
+    invalidPassword: function() {
       return this.password.length < 5;
     },
-    missingPassword: function () {
+    missingPassword: function() {
       return !this.password;
     },
-    missingTerms: function () {
+    missingTerms: function() {
       return !this.acceptedTerms;
-    },
+    }
   },
   methods: {
     formIsValid() {
-      return !this.missingName
-        && !this.missingUsername
-        && !this.missingEmail
-        && !this.invalidPassword
-        && !this.missingPassword
-        && !this.missingTerms;
-    }, 
+      return (
+        !this.missingName &&
+        !this.missingUsername &&
+        !this.missingEmail &&
+        !this.invalidPassword &&
+        !this.missingPassword &&
+        !this.missingTerms
+      );
+    },
     async signUp() {
       this.attemptSubmit = true;
+      this.formError = false;
       const { name, username, email, password } = this;
 
       if (this.formIsValid()) {
-        console.warn('submitting', name, username, email, password );
-        this.setShowModal(false);
-        // try {
-        //   const response = await fetch('http://polls.apiblueprint.org/signup', {
-        //     method: 'POST',
-        //     body: `"formData": {
-        //       "user": {
-        //         "fullname": ${name},
-        //         "username": ${username},
-        //         "email": ${email},
-        //         "password": ${password},
-        //       }
-        //     }`,
-        //     headers: {"Content-type": "application/json"},
-        //   });
+        try {
+          const user = {
+            fullname: name,
+            username,
+            email,
+            password,
+          };
+          let formData = new FormData();
+          formData.append('user', user);
 
-          
+          const response = await fetch('http://polls.apiblueprint.org/signup', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Content-type': 'application/json;charset=utf-8',
+            },
+          });
 
-        //   const data = await response.json();
+          if (response.ok) {
+          // const data = await response.json();
+            this.setShowModal(false);
+          } else {
+            throw new Error(`HTTP error: ${response.status}`);
+          }
 
-        // } catch (err) {
-        //   console.warn(err);
-        // }
+        } catch (err) {
+          console.warn(err);
+          this.formError = "Ooops! There was a error processing your details.";
+        }
       }
-
     }
   }
 };
@@ -242,6 +246,10 @@ export default {
   }
   .dribbble-logo {
     display: none;
+  }
+  .form-error {
+    color: $pink;
+    font-size: 12px;
   }
   @media (max-width: 1028px) {
     .sign-in {
