@@ -39,7 +39,9 @@ fieldset {
   padding: 0;
   margin: 20px 0 0;
 }
-
+input[type="submit"] {
+  -webkit-appearance: none;
+}
 input[type="text"],
 input[type="password"],
 input[type="email"] {
