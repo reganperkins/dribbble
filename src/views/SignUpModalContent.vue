@@ -1,7 +1,7 @@
 <template>
   <div id="sign-up-page">
     <FeaturePanel classProp="side-panel" textColor="#866211" />
-    <SignUp classProp="sign-up-panel" />
+    <SignUp classProp="sign-up-panel" :setShowModal="setShowModal" />
   </div>
 </template>
 
@@ -14,6 +14,9 @@ export default {
   components: {
     FeaturePanel,
     SignUp
+  },
+  props: {
+    setShowModal: Function
   }
 };
 </script>

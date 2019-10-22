@@ -13,7 +13,7 @@
       </a>
       <h2>{{ title }}</h2>
     </div>
-    <div class="feature-container">
+    <div class="image-container">
       <div
         class="feature-image"
         :style="{
@@ -21,11 +21,11 @@
           backgroundImage: `url(${require(`../assets/${featureImage}`)})`
         }"
       ></div>
-      <p>
-        Art by
-        <a :href="featureImageLink" target="_blank">{{ featureImageCredit }}</a>
-      </p>
     </div>
+    <p>
+      Art by
+      <a :href="featureImageLink" target="_blank">{{ featureImageCredit }}</a>
+    </p>
   </section>
 </template>
 
@@ -67,24 +67,29 @@ h2 {
 .feature-panel {
   display: flex;
   flex-direction: column;
+
+  align-items: stretch;
+  flex-grow: 1;
 }
 .text-container {
   padding: 56px 123px 0 64px;
 }
-.feature-container {
+p {
+  padding: 22px 56px 32px;
+  font-weight: normal;
+}
+.image-container {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  flex-grow: 1;
-  p {
-    padding: 22px 56px 32px;
-  }
+  justify-content: flex-end;
+  flex: 1;
 }
 .feature-image {
   flex-grow: 1;
-  background-size: auto 85%;
+  width: 514px;
+  max-height: 544px;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom center;
-  min-height: 330px;
+  background-position: center;
 }
 </style>

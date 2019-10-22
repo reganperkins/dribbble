@@ -20,7 +20,48 @@ h1, h2, h3, h4, h5, h6, label {
 h1 {
   margin-bottom: 24px;
 }
-
+fieldset {
+  &.invalid {
+    position: relative;
+    input,
+    input[type="checkbox"] + label::before {
+      border: 1px solid $pink;
+    }
+    .checkbox-wrapper ~ .error-message {
+      top: -17px;
+      left: -5px;
+      right: initial;
+      &:after {
+        left: 6px;
+        right: initial;
+      }
+    }
+    .error-message {
+      display: block;
+      font-size: 10px;
+      color: $white;
+      background: $pink;
+      padding: 2px 5px;
+      position: absolute;
+      right: 5px;
+      top: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      &:after {
+        content: '';
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $pink;
+        bottom: -4px;
+        right: 5px;
+        position: absolute;
+      }
+    }
+  }
+  .error-message {
+    display: none;
+  }
+}
 input[type="text"],input[type="password"], input[type="email"] {
   width: 100%;
   box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03);
@@ -29,9 +70,6 @@ input[type="text"],input[type="password"], input[type="email"] {
   margin-top: 12px;
   border: 1px solid transparent;
   background: $input-background;
-  &.invalid {
-    border: 1px solid $pink;
-  }
 }
 input[type="checkbox"] {
   opacity: 0;
@@ -59,9 +97,6 @@ input[type="checkbox"] {
       border-bottom: 2px solid $grey;
       transform: rotate(-45deg);
     }
-  }
-  &.invalid + label::before{
-    border: 1px solid $pink;
   }
   &:checked + label {
     &:after {

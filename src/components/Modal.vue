@@ -1,20 +1,19 @@
 <template>
-  <transition name="modal">
-    <div class="modal">
-      <div class="container">
-        <header v-if="$scopedSlots['header']">
-          <slot name="header"></slot>
-        </header>
+  <transition name="modal" appear>
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <header v-if="$scopedSlots['header']">
+            <slot name="header"></slot>
+          </header>
 
-        <slot></slot>
+          <slot></slot>
 
-        <footer v-if="$scopedSlots['footer']">
-          <slot name="footer"></slot>
-        </footer>
+          <footer v-if="$scopedSlots['footer']">
+            <slot name="footer"></slot>
+          </footer>
+        </div>
       </div>
-    </div>
   </transition>
-  <!-- https://vuejs.org/v2/guide/transitions.html -->
 </template>
 
 <script>
@@ -24,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal {
+.modal-wrapper {
   width: 100%;
   z-index: 10;
   display: flex;
@@ -34,8 +33,23 @@ export default {
   position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
+  transition: opacity .4s ease;
 }
-.container {
+.modal-container {
   width: 100%;
+  transition: transform .2s ease;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  transform: scale(0.95);
 }
 </style>

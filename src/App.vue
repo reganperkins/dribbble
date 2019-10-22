@@ -4,7 +4,7 @@
       Create Account
     </button>
     <Modal v-if="showModal">
-      <SignUpModalContent />
+      <SignUpModalContent :setShowModal="setShowModal" />
     </Modal>
   </div>
 </template>
