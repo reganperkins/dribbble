@@ -1,18 +1,22 @@
 <template>
-  <div id="sign-up-page">
+  <div class="sign-up-page">
     <FeaturePanel classProp="side-panel" textColor="#866211" />
-    <SignUp classProp="sign-up-panel" :setShowModal="setShowModal" />
+    <AuthLayout classProp="sign-up-panel">
+      <SignUp :setShowModal="setShowModal" />
+    </AuthLayout>
   </div>
 </template>
 
 <script>
 import FeaturePanel from "../components/FeaturePanel.vue";
+import AuthLayout from "../components/AuthLayout.vue";
 import SignUp from "../components/SignUp.vue";
 
 export default {
   name: "SignUpModalContent",
   components: {
     FeaturePanel,
+    AuthLayout,
     SignUp
   },
   props: {
@@ -30,7 +34,7 @@ export default {
   }
 }
 
-#sign-up-page {
+.sign-up-page {
   display: flex;
   align-items: stretch;
   flex-grow: 1;

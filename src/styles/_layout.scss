@@ -1,0 +1,25 @@
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  & > *:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  & > *:not(:nth-of-type(1)) {
+    margin-left: 10px;
+  }
+}

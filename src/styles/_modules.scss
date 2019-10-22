@@ -1,0 +1,139 @@
+@import 'src/styles/_mixins.scss';
+@import 'src/styles/_variables.scss';
+
+.or-separator {
+  @include text-separator--hr('Or');
+}
+
+.standard-button {
+  @include standard--button();
+}
+
+.icon-button {
+  @include button(48px);
+  flex: 0 0 auto;
+  height: 48px;
+  width: 48px;
+  background: $light-grey;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  &:hover {
+    background-color: darken($light-grey, 5%)
+  }
+  &:active {
+    background-color: darken($light-grey, 10%)
+  }
+}
+
+.google-button {
+  @include standard--button($blue, 200px, 48px);
+  flex: 1 1 288px;
+  min-width: 200px;
+  position: relative;
+  img {
+    display: block;
+    content: url('./assets/google.svg');
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: $link;
+}
+
+.sm-logo {
+  display: block;
+  width: 90px;
+  padding-bottom: 31px;
+}
+
+/*
+  allows uniform display of field error messages
+  - add invalid class to fieldset
+  - add an element within fieldset with error-message class that contains error message to be
+    displayed when invalid
+*/
+fieldset {
+  &.invalid {
+    position: relative;
+    input,
+    input[type="checkbox"] + label::before {
+      border: 1px solid $pink;
+    }
+    .checkbox-wrapper ~ .error-message {
+      top: -17px;
+      left: -5px;
+      right: initial;
+      &:after {
+        left: 6px;
+        right: initial;
+      }
+    }
+    .error-message {
+      display: block;
+      font-size: 10px;
+      color: $white;
+      background: $pink;
+      padding: 2px 5px;
+      position: absolute;
+      right: 5px;
+      top: 10px;
+      border-radius: 4px;
+      font-weight: 800;
+      &:after {
+        content: '';
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $pink;
+        bottom: -4px;
+        right: 5px;
+        position: absolute;
+      }
+    }
+  }
+  .error-message {
+    display: none;
+  }
+}
+
+/*
+  checkbox must have a label that comes after the checkbox element
+*/
+input[type="checkbox"] {
+  opacity: 0;
+  + label {
+    position: relative;
+    &:before, &:after {
+      display: inline-block;
+      position: absolute;
+    }
+    &:before {
+      content: "";
+      height: 16px;
+      width: 16px;
+      border: 1px solid #D0D0D0;
+      border-radius: 2px;
+      top: 3px;
+      left: -23px;
+    }
+    &:after {
+      left: -20px;
+      top: 7px;
+      height: 6px;
+      width: 9px;
+      border-left: 2px solid $grey;
+      border-bottom: 2px solid $grey;
+      transform: rotate(-45deg);
+    }
+  }
+  &:checked + label {
+    &:after {
+      content: "";
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="setShowModal(true)" class="center standard--button">
+    <button @click="setShowModal(true)" class="center standard-button">
       Create Account
     </button>
     <Modal v-if="showModal">
@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/styles/_reset.scss";
-@import "src/styles/_shared.scss";
+// @import "src/styles/_reset.scss";
+// @import "src/styles/_shared.scss";
+@import "src/styles/styles.scss";
 </style>
