@@ -147,7 +147,7 @@ export default {
 
           const response = await fetch("http://polls.apiblueprint.org/signup", {
             method: "POST",
-            mode: 'no-cors',
+            mode: "no-cors",
             body: formData,
             headers: {
               "Content-type": "application/json;charset=utf-8"
@@ -161,7 +161,6 @@ export default {
             throw new Error(`HTTP error: ${response.status}`);
           }
         } catch (err) {
-
           /*eslint no-console: ["error", { allow: ["warn"] }] */
           console.warn(err);
           this.formError = "Ooops! There was a error processing your details.";
