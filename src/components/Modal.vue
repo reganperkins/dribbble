@@ -40,16 +40,16 @@ export default {
   transition: transform 0.2s ease;
 }
 
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  transform: scale(0.95);
+@media (min-width: 450px) {
+  .modal-enter {
+    opacity: 0;
+  }
+  .modal-leave-active {
+    opacity: 0;
+  }
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    transform: scale(0.7);
+  }
 }
 </style>
